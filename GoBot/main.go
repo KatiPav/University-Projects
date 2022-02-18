@@ -240,7 +240,7 @@ func displayTodaysEvents(s *discordgo.Session, generalChannelID string) {
 func main() {
 
 	// Create a new Discord session using the provided bot token.
-	Session, err := discordgo.New("Bot " + "OTM0Mzg2ODg2NTMxNzQ3ODQx.YevVmQ.ASLGDrslCxbs_ezsTYydx-mYvuI")
+	Session, err := discordgo.New("Bot " + BOT_TOKEN)
 	check(err)
 	//start listening for messages
 	Session.AddHandler(messageCreate)
