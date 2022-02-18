@@ -1,0 +1,51 @@
+func displayTodaysEvents(s *discordgo.Session, generalChannelID string)
+Sends a message to general channel with information of all events, includions personal and national.
+Accepts discordGo discord session and channel id.
+
+func displayNationalEvents(s *discordgo.Session, generalChannelID string)
+Uses Web scraping using the library Colly. The used site is http://calendar.dir.bg/ 
+which gives info everyday for Name Days and other events.
+When a new HTML page is opened the class "top-events" is found and all the events are sent as messages to the general channel
+using generalChannelID.
+
+
+func displayPersonalEvents(s *discordgo.Session, generalChannelID string)
+Uses the time library and the bufio library. Finds the current date and looks for any
+events starting with this date in the "events.csv" file. If any are found a message with their info is sent to the 
+genaral channel using the genaralChannelID.
+
+
+func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate)
+On messageCreate checks if any of the keywords/commands is used in the message and reacts accordingly.
+
+
+func removeEvent(s *discordgo.Session, m *discordgo.MessageCreate)
+Removes an event from the list of events in "events.csv" file.
+
+func addEvent(s *discordgo.Session, m *discordgo.MessageCreate)
+Adds an event to the list of events in "events.csv" file.
+
+func check(e error)
+Checks if there is an error.
+
+func createPoll(s *discordgo.Session, m *discordgo.MessageCreate)
+Accepts a message that contains different options and sends a message to the same channel,
+marking each option with an emoji and reactiong to the message with the emojies for easier voting.
+
+
+func randomJoke(csvLines [][]string) string
+Uses the rand library to generaate pseudo-random number. 
+Accepts a table with data and chooses a joke with the generated pseudo-random number from it.
+Returns the joke as a string.
+
+
+func randomQuote(csvLines [][]string) string
+Uses the rand library to generaate pseudo-random number. 
+Accepts a table with data and chooses a quote with the generated pseudo-random number from it.
+Returns the quote as a string.
+
+func openCSV(path string) [][]string
+Uses the "encoding/csv" library. Opens a file in CSV format and reads the data into a matrix 
+of strings and returns it. Uses as a delimeter ';'.
+
+
