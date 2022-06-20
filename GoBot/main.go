@@ -249,8 +249,6 @@ func main() {
 	err = Session.Open()
 	check(err)
 
-	//WRITE HERE
-
 	ticker := time.NewTicker(time.Hour * 24)
 	for ; true; <-ticker.C {
 		displayTodaysEvents(Session, "767823437691224127")
